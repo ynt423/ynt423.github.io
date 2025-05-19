@@ -1,255 +1,976 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Welcome to Oscar Personal Website.">
-    <meta name="author" content="OscarYu">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="Welcome to Oscar Personal Website." />
+    <meta name="author" content="OscarYu" />
     <title>OscarYu Portfolio</title>
     <!-- font icons -->
-    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <link
+      rel="stylesheet"
+      href="assets/vendors/themify-icons/css/themify-icons.css"
+    />
     <!-- Bootstrap + Meyawo main styles -->
-	<link rel="stylesheet" href="assets/css/meyawo.css">
-</head>
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    <link rel="stylesheet" href="assets/css/meyawo.css" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <style>
+      :root {
+        --primary-color: #1e88e5;
+        --primary-dark: #1565c0;
+        --secondary-color: #546e7a;
+        --light-gray: #f5f7f9;
+        --dark-gray: #37474f;
+        --text-color: #455a64;
+        --white: #ffffff;
+      }
 
+      body {
+        font-family: "Poppins", sans-serif;
+        color: var(--text-color);
+        line-height: 1.7;
+        background-color: var(--white);
+        scroll-behavior: smooth;
+      }
+
+      /* Navigation Bar */
+      .custom-navbar {
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+        transition: all 0.3s ease;
+      }
+
+      .custom-navbar.affix {
+        padding: 10px 0;
+      }
+
+      .custom-navbar .logo {
+        font-weight: 700;
+        font-size: 1.6rem;
+        color: var(--primary-color);
+        text-decoration: none;
+        letter-spacing: 1px;
+      }
+
+      .custom-navbar .nav .item .link {
+        color: var(--dark-gray);
+        font-weight: 500;
+        position: relative;
+        padding: 5px 0;
+        margin: 0 15px;
+        transition: all 0.3s ease;
+      }
+
+      .custom-navbar .nav .item .link:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--primary-color);
+        transition: width 0.3s ease;
+      }
+
+      .custom-navbar .nav .item .link:hover {
+        color: var(--primary-color);
+      }
+
+      .custom-navbar .nav .item .link:hover:after {
+        width: 100%;
+      }
+
+      /* Header Section */
+      .header {
+        position: relative;
+        background: linear-gradient(
+          135deg,
+          rgba(23, 92, 165, 0.95),
+          rgba(11, 69, 145, 0.95)
+        );
+        height: 100vh;
+        min-height: 600px;
+        overflow: hidden;
+      }
+
+      .header:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("assets/imgs/pattern.png");
+        opacity: 0.05;
+        z-index: 0;
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 1;
+        padding-top: 100px;
+      }
+
+      .header-title {
+        color: var(--white);
+        margin-bottom: 30px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .header-inline {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 35px;
+        margin-bottom: 30px;
+      }
+
+      .header-img {
+        width: 180px;
+        height: 180px;
+        border-radius: 90px;
+        object-fit: cover;
+        border: 4px solid var(--white);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        animation: fadeIn 1.5s;
+      }
+
+      .header-titles {
+        text-align: left;
+      }
+
+      .header-title .up {
+        display: inline-block;
+        font-size: 2rem;
+        font-weight: 300;
+        margin-bottom: 10px;
+        animation: fadeInDown 1s;
+      }
+
+      .header-title .down {
+        display: inline-block;
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        animation: fadeInUp 1s;
+        white-space: nowrap;
+      }
+
+      .header-content p {
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        animation: fadeIn 1.5s;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-primary {
+        background-color: var(--white);
+        color: var(--primary-dark);
+        border: none;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        animation: fadeInUp 1.8s;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-dark);
+        color: var(--white);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      /* About Section */
+      .about {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        padding: 80px 0;
+      }
+
+      @media (min-width: 768px) {
+        .about {
+          flex-direction: row;
+          align-items: center;
+        }
+      }
+
+      .about-img-holder {
+        flex: 1;
+        text-align: center;
+      }
+
+      .about-img {
+        max-width: 300px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .about-img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .about-caption {
+        flex: 1.5;
+        text-align: left;
+      }
+
+      .section-subtitle {
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+      }
+
+      .section-title {
+        color: var(--dark-gray);
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+      }
+
+      .about-caption p {
+        color: var(--text-color);
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-bottom: 30px;
+      }
+
+      .btn-outline-primary {
+        background-color: transparent;
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+        padding: 10px 28px;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn-outline-primary:hover {
+        background-color: var(--primary-color);
+        color: var(--white);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(30, 136, 229, 0.25);
+      }
+
+      /* Skills Section */
+      .section {
+        padding: 100px 0;
+      }
+
+      #service {
+        background-color: var(--light-gray);
+      }
+
+      .service-card {
+        background-color: var(--white);
+        border-radius: 15px;
+        padding: 40px 30px;
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+        height: 100%;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-card .icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 20px;
+        filter: invert(40%) sepia(60%) saturate(1000%) hue-rotate(190deg)
+          brightness(95%) contrast(95%);
+      }
+
+      .service-card .title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--dark-gray);
+        margin-bottom: 15px;
+      }
+
+      .service-card .subtitle {
+        font-size: 0.95rem;
+        color: var(--text-color);
+        line-height: 1.7;
+      }
+
+      /* Portfolio Section */
+      .portfolio-card {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        display: block;
+        text-decoration: none;
+      }
+
+      .portfolio-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .portfolio-card-img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: all 0.5s ease;
+      }
+
+      .portfolio-card:hover .portfolio-card-img {
+        transform: scale(1.1);
+      }
+
+      .portfolio-card-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(30, 136, 229, 0.8),
+          rgba(21, 101, 192, 0.9)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: all 0.4s ease;
+      }
+
+      .portfolio-card:hover .portfolio-card-overlay {
+        opacity: 1;
+      }
+
+      .portfolio-card-caption {
+        text-align: center;
+        padding: 20px;
+        color: var(--white);
+      }
+
+      .portfolio-card-caption h4 {
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .portfolio-card-caption p {
+        font-size: 0.9rem;
+        opacity: 0.9;
+      }
+
+      .col-md-4 h5 {
+        text-align: center;
+        margin-top: 15px;
+        font-weight: 600;
+        color: var(--dark-gray);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--white);
+        padding: 50px 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      footer p {
+        color: var(--text-color);
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: flex-end;
+        gap: 15px;
+      }
+
+      .social-links .link {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--light-gray);
+        color: var(--primary-color);
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .social-links .link:hover {
+        background-color: var(--primary-color);
+        color: var(--white);
+        transform: translateY(-3px);
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 767px) {
+        .header-inline {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .header-img {
+          width: 150px;
+          height: 150px;
+          border-radius: 75px;
+        }
+
+        .header-titles {
+          text-align: center;
+        }
+
+        .header-title .up,
+        .header-title .down {
+          font-size: 1.8rem;
+          display: block;
+        }
+
+        .header-title .down {
+          font-size: 2.5rem;
+          white-space: normal;
+        }
+
+        .header-content p {
+          font-size: 1rem;
+        }
+
+        .section {
+          padding: 70px 0;
+        }
+
+        .about {
+          padding: 50px 0;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .about-caption {
+          text-align: center;
+        }
+
+        .social-links {
+          justify-content: center;
+          margin-top: 20px;
+        }
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Improved Hamburger Menu */
+      .hamburger {
+        padding: 10px;
+        display: inline-block;
+        cursor: pointer;
+        background-color: transparent;
+        border: 0;
+        margin: 0;
+        outline: none;
+      }
+
+      .hamburger-box {
+        width: 30px;
+        height: 24px;
+        display: inline-block;
+        position: relative;
+      }
+
+      .hamburger-inner {
+        display: block;
+        top: 50%;
+        margin-top: -2px;
+      }
+
+      .hamburger-inner,
+      .hamburger-inner::before,
+      .hamburger-inner::after {
+        width: 30px;
+        height: 3px;
+        background-color: var(--primary-color);
+        border-radius: 4px;
+        position: absolute;
+        transition: transform 0.15s ease;
+      }
+
+      .hamburger-inner::before,
+      .hamburger-inner::after {
+        content: "";
+        display: block;
+      }
+
+      .hamburger-inner::before {
+        top: -10px;
+      }
+
+      .hamburger-inner::after {
+        bottom: -10px;
+      }
+
+      .hamburger--elastic .hamburger-inner {
+        top: 2px;
+        transition-duration: 0.275s;
+        transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      .hamburger--elastic .hamburger-inner::before {
+        top: 10px;
+        transition: opacity 0.125s 0.275s ease;
+      }
+
+      .hamburger--elastic .hamburger-inner::after {
+        top: 20px;
+        transition: transform 0.275s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      .hamburger--elastic.is-active .hamburger-inner {
+        transform: translate3d(0, 10px, 0) rotate(135deg);
+        transition-delay: 0.075s;
+      }
+
+      .hamburger--elastic.is-active .hamburger-inner::before {
+        transition-delay: 0s;
+        opacity: 0;
+      }
+
+      .hamburger--elastic.is-active .hamburger-inner::after {
+        transform: translate3d(0, -20px, 0) rotate(-270deg);
+        transition-delay: 0.075s;
+      }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
     <!-- Page Navbar -->
     <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
-        <div class="container">
-            <a class="logo" href="">OSCAR423</a>         
-            <ul class="nav">
-                <li class="item">
-                    <a class="link" href="#home">Home</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="#about">About</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="#portfolio">Portfolio</a>
-                </li>
-                </li>
-                <li class="item">
-                    <a class="link" href="#contact">Contact</a>
-                </li>
-               
-            </ul>
-            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
-                <div class="hamburger-box">
-                  <div class="hamburger-inner"></div>
-                </div>
-            </a>
-        </div>          
-    </nav><!-- End of Page Navbar -->
+      <div class="container">
+        <a class="logo" href="">OSCAR423</a>
+        <ul class="nav">
+          <li class="item">
+            <a class="link" href="#home">Home</a>
+          </li>
+          <li class="item">
+            <a class="link" href="#about">About</a>
+          </li>
+          <li class="item">
+            <a class="link" href="#service">Skills</a>
+          </li>
+          <li class="item">
+            <a class="link" href="#portfolio">Portfolio</a>
+          </li>
+          <li class="item">
+            <a class="link" href="#contact">Contact</a>
+          </li>
+        </ul>
+        <a
+          href="javascript:void(0)"
+          id="nav-toggle"
+          class="hamburger hamburger--elastic"
+        >
+          <div class="hamburger-box">
+            <div class="hamburger-inner"></div>
+          </div>
+        </a>
+      </div>
+    </nav>
+    <!-- End of Page Navbar -->
 
     <!-- page header -->
     <header id="home" class="header">
-        <div class="overlay"></div>
-        <div class="header-content container">
+      <div class="overlay"></div>
+      <div class="header-content container">
+        <div class="header-inline">
+          <img
+            src="assets/imgs/Oscar_Photo2.jpeg"
+            class="header-img"
+            alt="Oscar Yu profile photo"
+          />
+          <div class="header-titles">
             <h1 class="header-title">
-                <span class="up">Hello! </span>
-                <span class="down">I am Oscar</span>
+              <span class="up">Welcome to my website!</span>
+              <span class="down">This is Oscar Yu</span>
             </h1>
-            <p class="header-title ">HK PolyU Student (YEAR4) </p> 
-            <p class="header-title ">BSc (HONS) Fintech & AI</p>             
+          </div>
+        </div>
+        <p class="header-title">BSc (HONS) Fintech & AI</p>
+        <p class="header-title">IT Project Executive, HK PolyU Graduate</p>
 
-            <button class="btn btn-primary" onClick="document.getElementById('portfolio').scrollIntoView();"">Visit My Portfolio</button>
-        </div>              
-    </header><!-- end of page header -->
+        <button
+          class="btn btn-primary"
+          onClick="document.getElementById('portfolio').scrollIntoView();"
+        >
+          View My Portfolio
+        </button>
+      </div>
+    </header>
+    <!-- end of page header -->
 
     <!-- about section -->
     <section class="section pt-0" id="about">
-        <!-- container -->
-        <div class="container text-center">
-            <!-- about wrapper -->
-            <div class="about">
-                <div class="about-img-holder">
-                    <img src="assets/imgs/OscarPhoto.JPG" class="about-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                </div>
-                <div class="about-caption">
-                    <p class="section-subtitle">Who Am I ?</p>
-                    <h2 class="section-title mb-3">About Me</h2>
-                    <p class="section-subtitle">
-                        Welcome to Oscar portfolio website!
-
-                        I am a year4 student from the Hong Kong Polytechnic University, majoring in Financial Technology and Artificial Intelligence. During my studies, I became fascinated with web development, data analytics and cloud computing, which led me to explore different skills and work on various projects.
-                        
-                        <br>
-                        <br> I enjoy taking on challenges and pushing myself to learn new things. Through my journey of self-learning and project work, I have gained a deep understanding on web development technologies, cloud-based services and programming languages such as JavaScript,Python and Java.
-                        <br>
-                        <br>I believe that my passion for technology and my willingness to learn and grow make me an excellent candidate and I look forward to contributing my knowledge and expertise to the IT industry.              
-                    </p>
-                    <a href="./assets/CV/WordResume_Oscar.pdf" download="YuNgoTing-Resume.pdf"> <button class="btn-rounded btn btn-outline-primary mt-4" >Download CV</button></a>
-                   
-                </div>              
-            </div><!-- end of about wrapper -->
-        </div><!-- end of container -->
-    </section> <!-- end of about section -->
+      <!-- container -->
+      <div class="container">
+        <!-- about wrapper -->
+        <div class="about">
+          <div class="about-img-holder">
+            <img
+              src="assets/imgs/OscarPhoto.JPG"
+              class="about-img"
+              alt="Oscar Yu profile photo"
+            />
+          </div>
+          <div class="about-caption">
+            <p class="section-subtitle">Who Am I?</p>
+            <h2 class="section-title mb-3">About Me</h2>
+            <p>
+              Welcome to my portfolio website! I am a recent graduate from the
+              Hong Kong Polytechnic University, majoring in Financial Technology
+              and Artificial Intelligence.
+            </p>
+            <p>
+              During my studies, I became fascinated with web development, data
+              analytics and AI research, which led me to explore different
+              skills and work on various projects.
+            </p>
+            <p>
+              I enjoy taking on challenges and pushing myself to learn new
+              things. Through my journey of self-learning and project work, I
+              have gained a deep understanding of web development technologies,
+              cloud-based services and programming languages such as
+              Python,JavaScript, and Java.
+            </p>
+            <p>
+              I believe that my passion for technology and my willingness to
+              learn and grow make me an excellent candidate for the IT industry,
+              and I look forward to contributing my knowledge and expertise.
+            </p>
+            <a
+              href="./assets/CV/Resume_Yu Ngo Ting Oscar.pdf"
+              download="Resume_Yu Ngo Ting Oscar.pdf"
+            >
+              <button class="btn-rounded btn btn-outline-primary mt-4">
+                Download CV
+              </button>
+            </a>
+          </div>
+        </div>
+        <!-- end of about wrapper -->
+      </div>
+      <!-- end of container -->
+    </section>
+    <!-- end of about section -->
 
     <!-- service section -->
     <section class="section" id="service">
-        <div class="container text-center">
-            <p class="section-subtitle">What I Do ?</p>
-            <h6 class="section-title mb-6">Skills</h6>
-            <!-- row -->
-            <div class="row">
-               
-                <div class="col-md-8 col-lg-4">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/code-slash.svg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" class="icon">
-                            <h6 class="title">Web Development</h6>
-                            <p class="subtitle">I mainly use React JS, Bootstrap and Firebase to help me develop some web applications.</p>
-                        </div>
-                    </div>
-                </div>
-             <div class="col-md-8 col-lg-4">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/robot.svg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" class="icon">
-                            <h6 class="title">RPA Development</h6>
-                            <p class="subtitle">I am good at using MS Power Platform.I used to assist other programmers in MTR to design workflows such as automated approvals.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8 col-lg-4">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/file-bar-graph.svg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" class="icon">
-                            <h6 class="title">Data Analytics</h6>
-                            <p class="subtitle">Python is one of my basic skills. I have experience on writing automation program using Python (Selenium) to scrap the data from some companies such as Trip.com.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8 col-lg-4">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/cloud-download.svg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" class="icon">
-                            <h6 class="title">Cloud Computing</h6>
-                            <p class="subtitle">Currently I've passed two certifications from AWS.Besides,during my MTR internship,I have experience to get in touch with basic Azure services.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8 col-lg-4">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/palette.svg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" class="icon">
-                            <h6 class="title">UI DESIGN</h6>
-                            <p class="subtitle">I have self-learnt Figma, which assist me to modify and design UI</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8 col-lg-4">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/scissors.svg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" class="icon">
-                            <h6 class="title">Video Editing</h6>
-                            <p class="subtitle">Basically I use the Davinnci software to help me edit video, and I quite love it.</p>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- end of row -->
+      <div class="container text-center">
+        <p class="section-subtitle">What I Do?</p>
+        <h2 class="section-title mb-6">My Skills</h2>
+        <!-- row -->
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="service-card">
+              <div class="body">
+                <img
+                  src="assets/imgs/code-slash.svg"
+                  alt="Web Development icon"
+                  class="icon"
+                />
+                <h6 class="title">Web Development</h6>
+                <p class="subtitle">
+                  I mainly use React JS, Bootstrap and Firebase to help me
+                  develop responsive and dynamic web applications.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="service-card">
+              <div class="body">
+                <img
+                  src="assets/imgs/robot.svg"
+                  alt="RPA Development icon"
+                  class="icon"
+                />
+                <h6 class="title">RPA Development</h6>
+                <p class="subtitle">
+                  I am proficient with MS Power Platform and have experience
+                  assisting programmers at MTR to design automated workflows.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="service-card">
+              <div class="body">
+                <img
+                  src="assets/imgs/file-bar-graph.svg"
+                  alt="Data Analytics icon"
+                  class="icon"
+                />
+                <h6 class="title">Data Analytics</h6>
+                <p class="subtitle">
+                  I use Python for data analysis and have experience writing
+                  automation programs with Selenium to scrape data from websites
+                  like Trip.com.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="service-card">
+              <div class="body">
+                <img
+                  src="assets/imgs/cloud-download.svg"
+                  alt="Cloud Computing icon"
+                  class="icon"
+                />
+                <h6 class="title">Cloud Computing</h6>
+                <p class="subtitle">
+                  I have earned two AWS certifications and gained experience
+                  with Azure services during my internship at MTR.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="service-card">
+              <div class="body">
+                <img
+                  src="assets/imgs/palette.svg"
+                  alt="UI Design icon"
+                  class="icon"
+                />
+                <h6 class="title">UI Design</h6>
+                <p class="subtitle">
+                  I have self-taught Figma skills to assist me in designing and
+                  modifying user interfaces for my web projects.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="service-card">
+              <div class="body">
+                <img
+                  src="assets/imgs/scissors.svg"
+                  alt="Video Editing icon"
+                  class="icon"
+                />
+                <h6 class="title">Video Editing</h6>
+                <p class="subtitle">
+                  I use DaVinci Resolve software for video editing, creating
+                  polished and professional video content.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-    </section><!-- end of service section -->
+        <!-- end of row -->
+      </div>
+    </section>
+    <!-- end of service section -->
 
     <!-- portfolio section -->
     <section class="section" id="portfolio">
-        <div class="container text-center">
-            <p class="section-subtitle">What I Did ?</p>
-            <h6 class="section-title mb-6">Portfolio</h6>
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-4">
-                    <a href="https://ynt423.github.io/education-app" class="portfolio-card">
-                        <img src="assets/imgs/education.jpeg" class="portfolio-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">    
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>Education Platform</h5>
-                                <p class="font-weight-normal">Category: Web application (ReactJS&Firebase)</p>
-                            </span>                         
-                        </span>       
-                        <h5>Education Platform </h5>             
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="https://ynt423.github.io/hkbus-app" class="portfolio-card">
-                        <img class="portfolio-card-img" src="assets/imgs/bus.jpeg" class="img-responsive rounded" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>Hong Kong Transport Website</h5>
-                                <p class="font-weight-normal">Category: Web application(ReactJS&API)</p>
-                            </span>                         
-                        </span>                         
-                    </a>
-                    <h5>Hong Kong Transport Website</h5>
-                </div>
-                <div class="col-md-4">
-                    <a href="https://ynt423.github.io/movie-trailer-app" class="portfolio-card">
-                        <img class="portfolio-card-img" src="assets/imgs/movie.jpg" class="img-responsive rounded" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">    
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>Movie Trailer Web site</h5>
-                                <p class="font-weight-normal">Category: Web application (ReactJS&API)</p>
-                            </span>                         
-                        </span>                     
-                    </a>
-                    <h5>Movie Trailer Web site</h5>
-                </div>
-            </div><!-- end of row -->
-            <br>
-           
-        </div><!-- end of container -->
-    
-    </section> <!-- end of portfolio section -->
-
-
-   
-
-    <!-- contact section -->
-   <!--  <section class="section" id="contact">
-        <div class="container text-center">
-            <p class="section-subtitle">How can you communicate?</p>
-            <h6 class="section-title mb-5">Contact Me</h6>
-            
-            <form action="" class="contact-form col-md-10 col-lg-8 m-auto">
-                <div class="form-row">
-                    <div class="form-group col-sm-6">
-                        <input type="text" size="50" class="form-control" placeholder="Your Name" required>                 
-                    </div>
-                    <div class="form-group col-sm-6">
-                        <input type="email" class="form-control" placeholder="Enter Email"requried>                 
-                    </div>
-                    <div class="form-group col-sm-12">
-                        <textarea name="comment" id="comment" rows="6"   class="form-control" placeholder="Write Something"></textarea>
-                    </div>
-                    <div class="form-group col-sm-12 mt-3">
-                        <input type="submit" value="Send Message" class="btn btn-outline-primary rounded">                  
-                    </div>
-                </div>  
-            </form>
+      <div class="container text-center">
+        <p class="section-subtitle">What I Did?</p>
+        <h2 class="section-title mb-6">My Projects</h2>
+        <!-- row -->
+        <div class="row">
+          <div class="col-md-4">
+            <a
+              href="https://hkjcaianalysis.netlify.app/racing_data_20250518.html"
+              class="portfolio-card"
+            >
+              <img
+                src="assets/imgs/horse_racing.jpg"
+                class="portfolio-card-img"
+                alt="Horse Racing AI Dashboard Preview"
+              />
+              <span class="portfolio-card-overlay">
+                <span class="portfolio-card-caption">
+                  <h4>Horse Racing AI Dashboard</h4>
+                  <p class="font-weight-normal">
+                    Dashboard, Web Scraping, AI Machine Learning model (XGBoost)
+                  </p>
+                </span>
+              </span>
+            </a>
+            <h5>Horse Racing AI Dashboard</h5>
+          </div>
+          <div class="col-md-4">
+            <a href="https://ynt423.github.io/hkbus-app" class="portfolio-card">
+              <img
+                class="portfolio-card-img"
+                src="assets/imgs/bus.jpeg"
+                alt="Hong Kong Transport Website preview"
+              />
+              <span class="portfolio-card-overlay">
+                <span class="portfolio-card-caption">
+                  <h4>Hong Kong Transport Website</h4>
+                  <p class="font-weight-normal">
+                    Web application built with ReactJS & API integration
+                  </p>
+                </span>
+              </span>
+            </a>
+            <h5>Hong Kong Transport Website</h5>
+          </div>
+          <div class="col-md-4">
+            <a
+              href="https://ynt423.github.io/movie-trailer-app"
+              class="portfolio-card"
+            >
+              <img
+                class="portfolio-card-img"
+                src="assets/imgs/movie.jpg"
+                alt="Movie Trailer Website preview"
+              />
+              <span class="portfolio-card-overlay">
+                <span class="portfolio-card-caption">
+                  <h4>Movie Trailer Website</h4>
+                  <p class="font-weight-normal">
+                    Web application built with ReactJS & API integration
+                  </p>
+                </span>
+              </span>
+            </a>
+            <h5>Movie Trailer Website</h5>
+          </div>
         </div>
-    </section> -->
+        <!-- end of row -->
+      </div>
+      <!-- end of container -->
+    </section>
+    <!-- end of portfolio section -->
+
+    <!-- contact section (hidden but kept for future use) -->
+    <section class="section" id="contact" style="display: none">
+      <div class="container text-center">
+        <p class="section-subtitle">How can you communicate?</p>
+        <h2 class="section-title mb-5">Contact Me</h2>
+
+        <form action="" class="contact-form col-md-10 col-lg-8 m-auto">
+          <div class="form-row">
+            <div class="form-group col-sm-6">
+              <input
+                type="text"
+                size="50"
+                class="form-control"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+            <div class="form-group col-sm-6">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Enter Email"
+                required
+              />
+            </div>
+            <div class="form-group col-sm-12">
+              <textarea
+                name="comment"
+                id="comment"
+                rows="6"
+                class="form-control"
+                placeholder="Write Something"
+              ></textarea>
+            </div>
+            <div class="form-group col-sm-12 mt-3">
+              <input
+                type="submit"
+                value="Send Message"
+                class="btn btn-outline-primary rounded"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
     <!-- end of contact section -->
 
     <!-- footer -->
     <div class="container">
-        <footer class="footer">       
-            <div class="social-links text-right m-auto ml-sm-auto">
-                <a href="https://www.linkedin.com/in/oscar-yu-b8729a242/" class="link"><i class="ti-linkedin"></i></a>
-                <a href="https://github.com/ynt423" class="link"><i class="ti-github"></i></a>
-                
-            </div>
-        </footer>
-    </div> <!-- end of page footer -->
-	
-	<!-- core  -->
+      <footer class="footer">
+        <div class="social-links text-right m-auto ml-sm-auto">
+          <a
+            href="https://www.linkedin.com/in/oscar-yu-b8729a242/"
+            class="link"
+            aria-label="LinkedIn Profile"
+          >
+            <i class="ti-linkedin"></i>
+          </a>
+          <a
+            href="https://github.com/ynt423"
+            class="link"
+            aria-label="GitHub Profile"
+          >
+            <i class="ti-github"></i>
+          </a>
+        </div>
+      </footer>
+    </div>
+    <!-- end of page footer -->
+
+    <!-- core  -->
     <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
     <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
 
     <!-- bootstrap 3 affix -->
-	<script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
 
     <!-- Meyawo js -->
     <script src="assets/js/meyawo.js"></script>
-
-</body>
+  </body>
 </html>
